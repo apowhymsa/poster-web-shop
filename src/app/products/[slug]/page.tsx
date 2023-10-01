@@ -168,6 +168,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
         setTab={setTab}
         tab={tab}
       />
+<<<<<<< HEAD
       <div className="products-recommendation px-10 mb-7">
         <h3 className="text-2xl font-medium mb-7">Похожие товары</h3>
         <SwiperProducts
@@ -188,6 +189,52 @@ const Page = ({ params }: { params: { slug: string } }) => {
           }}
           products={products}
         />
+=======
+      <div className="products-recommendation   mb-7">
+        <div className="flex flex-col justify-center items-center mb-7 bg-[#e5e7eb] bg-opacity-50">
+            
+             <Image         
+            
+            src="/split_flower.svg"
+            alt="Product Image"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{
+              width: "200px",
+              height: "100px",
+              backgroundSize:"100% 100%",
+              objectFit: "cover", 
+              objectPosition: "center center",
+              aspectRatio: "1 / 1",
+            }}
+            placeholder="blur"
+            blurDataURL="/split_flower.svg"
+            priority
+             ></Image>
+              <h2 className="text-3xl  font-medium mb-4 ">Похожие товары </h2> 
+        </div>
+        <div className="px-11">
+          <SwiperProducts 
+            breakpoints={{
+              320: {
+                slidesPerView: 1.3,
+              },
+              485: {
+                slidesPerView: 2.3,
+              },
+              700: {
+                slidesPerView: 3.3,
+              },
+              1000: {
+                slidesPerView: 4.5,
+              },
+            }}
+            products={products}
+          />
+        </div>
+        
+>>>>>>> 0b36d4b6384269e2ff303513e3d253c5fc80520e
       </div>
     </>
   );

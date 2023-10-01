@@ -32,6 +32,8 @@ const SwiperProducts = (props: Props) => {
       }}
       spaceBetween={25}
       slidesPerView={4}
+      resistanceRatio={0}
+      
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => setSwiper(swiper)}
       breakpoints={breakpoints}

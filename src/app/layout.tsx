@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Rubik } from "next/font/google";
+import { Comfortaa, Montserrat, Rubik } from "next/font/google";
 import Header from "@/components/Header/Header";
 import NavigationContextProvider from "@/contexts/NavigationContext/NavigationContextProvider";
 import Providers from "@/utils/store/provider";
@@ -11,6 +11,8 @@ import AuthContextProvider from "@/contexts/AuthContext/AuthContextProvider";
 import ModalSignUp from "@/components/ModalSignUp/ModalSignUp";
 
 const rubik = Rubik({ subsets: ["cyrillic"] });
+const montserrat = Montserrat({subsets:['cyrillic']})
+const comfarta = Comfortaa({subsets:['cyrillic']})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={[rubik.className].join(" ")}>
+      <body className={[comfarta.className].join(" ")}>
         <Providers>
           <NavigationContextProvider>
             <AuthContextProvider>
