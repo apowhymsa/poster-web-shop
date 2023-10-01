@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @import "react-loading-skeleton/dist/skeleton.css";
-
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
@@ -29,6 +29,8 @@ body {
 }
 
 * {
+  
+  /* font-family: 'Comfortaa', cursive; */
   padding: 0;
   margin: 0;
   box-sizing: border-box;

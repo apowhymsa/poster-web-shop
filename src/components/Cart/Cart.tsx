@@ -18,10 +18,35 @@ const Cart = (props: Props) => {
   const dispatch = useAppDispatch();
 
   return (
-    <div className={isOpen ? "product-cart cart_active" : "product-cart"}>
+    <div className={isOpen ? "product-cart cart_active gap-y-10 drop-shadow-2xl" : "product-cart"}>
       <h3 className="font-medium text-[16px] text-center">Корзина</h3>
       {cart.length <= 0 ? (
-        <div>Корзина пустая</div>
+        <div 
+        
+        className="flex flex-col justify-between gap-y-10 items-center"> 
+          <Image          
+          // src="/flower.svg"
+          src="/cart_icon.svg"
+
+          alt="Product Image"
+          width={0}
+          height={0}
+          sizes="20vw"
+          style={{
+            width: "40%",
+            height: "auto",
+            objectFit: "cover",
+            borderRadius: "8px",
+            objectPosition: "center center",
+            aspectRatio: "1 / 1",
+          }}
+          placeholder="blur"
+          blurDataURL="/cart_icon.svg"
+          priority
+        />
+        <h2 className="font-bold">Товаров нет</h2>
+        <p className="text-neutral-400 text-center"> Для оформления заказа добавьте товар в корзину</p>
+        </div>
       ) : (
         <div className="cart-container flex flex-col gap-y-5 flex-1">
           <p
