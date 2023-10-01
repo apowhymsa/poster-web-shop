@@ -5,12 +5,17 @@ import "../Products.scss";
 import { useAppDispatch } from "@/utils/store/hooks";
 import { setCartItem } from "@/utils/store/cartSlice";
 import products from "@/components/Products/Products";
+import { useContext, useEffect } from "react";
+import { onAuthStateChanged } from "@firebase/auth";
+import { auth } from "@/utils/firebase/firebase";
+import { AuthContext } from "@/contexts/AuthContext/AuthContext";
 
 type Props = {
   product: Product;
   isButtonVisible?: boolean;
 };
 const ProductItem = ({ product, isButtonVisible = true }: Props) => {
+  const { isLoading, isLogged } = useContext(AuthContext);
   const dispatch = useAppDispatch();
   return (
     <div className="product-item">
@@ -53,14 +58,18 @@ const ProductItem = ({ product, isButtonVisible = true }: Props) => {
       </div>
       {isButtonVisible ? (
         <button
-          onClick={() =>
-            dispatch(
-              setCartItem({
-                product: product,
-                quantity: 1,
-              }),
-            )
-          }
+          onClick={() => {
+            if (!isLogged) {
+              console.log("user not auth");
+            } else {
+              dispatch(
+                setCartItem({
+                  product: product,
+                  quantity: 1,
+                }),
+              );
+            }
+          }}
           className="border border-rose-400 text-rose-400 px-4 py-2 rounded transition-colors hover:bg-rose-400 hover:text-white"
         >
           Добавить в корзину

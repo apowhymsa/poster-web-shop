@@ -4,9 +4,11 @@ import { useAppSelector } from "@/utils/store/hooks";
 import Image from "next/image";
 import Link from "next/link";
 import ProductItem from "@/components/Products/ProductItem/ProductItem";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import Skeleton from "react-loading-skeleton";
 import ProductItemSkeleton from "@/components/Products/ProductItem/ProductItemSkeleton";
+import { onAuthStateChanged } from "@firebase/auth";
+import { auth } from "@/utils/firebase/firebase";
 
 type Props = {
   isLoading: boolean;
@@ -17,6 +19,7 @@ const Products = (props: Props) => {
   const products = useAppSelector(
     (state) => state.productsReducer,
   ).filteredProducts;
+
   return (
     <section className="products-container">
       {isLoading ? (

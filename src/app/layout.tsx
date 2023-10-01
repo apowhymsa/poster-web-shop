@@ -6,6 +6,9 @@ import NavigationContextProvider from "@/contexts/NavigationContext/NavigationCo
 import Providers from "@/utils/store/provider";
 import Footer from "@/components/Footer/Footer";
 import { SkeletonTheme } from "react-loading-skeleton";
+import * as firebase from "../utils/firebase/firebase";
+import AuthContextProvider from "@/contexts/AuthContext/AuthContextProvider";
+import ModalSignUp from "@/components/ModalSignUp/ModalSignUp";
 
 const rubik = Rubik({ subsets: ["cyrillic"] });
 
@@ -24,11 +27,14 @@ export default function RootLayout({
       <body className={[rubik.className].join(" ")}>
         <Providers>
           <NavigationContextProvider>
-            <Header />
-            <main id="main" className="flex-1">
-              {children}
-            </main>
-            <Footer />
+            <AuthContextProvider>
+              <Header />
+              <main id="main" className="flex-1">
+                {children}
+              </main>
+              <Footer />
+              <ModalSignUp />
+            </AuthContextProvider>
           </NavigationContextProvider>
         </Providers>
       </body>

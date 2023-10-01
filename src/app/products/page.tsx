@@ -4,7 +4,7 @@ import "./ProductsPage.scss";
 import SortSelect from "@/components/Products/SortSelect/SortSelect";
 import { FunnelIcon } from "@heroicons/react/24/solid";
 import Products from "@/components/Products/Products";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { Category, Product } from "@/types";
 import { useAppDispatch } from "@/utils/store/hooks";
 import { filterProducts, setProducts } from "@/utils/store/productSlice";
@@ -14,6 +14,7 @@ import { SingleValue } from "react-select";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import categoriesFilter from "@/components/Products/CategoriesFilter/CategoriesFilter";
 import Skeleton from "react-loading-skeleton";
+import { AuthContext } from "@/contexts/AuthContext/AuthContext";
 
 const getCategories = async () => {};
 const Page = () => {
