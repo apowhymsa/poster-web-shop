@@ -13,8 +13,10 @@ import { useContext } from "react";
 import { AuthContext } from "@/contexts/AuthContext/AuthContext";
 import Skeleton from "react-loading-skeleton";
 import { ModalContext } from "@/contexts/ModalContext/ModalContext";
+import useToast from "@/hooks/useToast";
 
 const HeaderTop = () => {
+  const { info } = useToast();
   const { isLoading, isLogged } = useContext(AuthContext);
   const { isOpen, setOpen } = useContext(ModalContext);
   console.log(isLoading);
@@ -25,7 +27,9 @@ const HeaderTop = () => {
   }
 
   const signOutHandler = async () => {
-    await signOut(auth);
+    await signOut(auth).then(() => localStorage.removeItem("authUserId"));
+
+    info("Успешный выход с аккаунта");
   };
 
   return (
@@ -45,7 +49,7 @@ const HeaderTop = () => {
               Создать аккаунт
             </span>
             <span className="header-top-divider"></span>
-            <span className="text" role="button">
+            <span className="text" role="button" onClick={() => setOpen(true)}>
               Войти
             </span>
           </>

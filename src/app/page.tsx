@@ -13,6 +13,10 @@ import {
   RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { toast } from "react-toastify";
+import { doc, getDoc } from "@firebase/firestore";
+import { db } from "@/utils/firebase/firebase";
+import { setCart } from "@/utils/store/cartSlice";
 
 export default function Home() {
   const products = useAppSelector((state) => state.productsReducer).products;
@@ -21,17 +25,19 @@ export default function Home() {
 
   useEffect(() => {
     setLoading(true);
-    const getProducts = async () => {
-      const response = await fetch("/api/products", {
-        cache: "no-cache",
-      });
-      const products: Product[] = await response.json();
-
-      dispatch(setProducts(products));
-    };
 
     Promise.all([getProducts()]).finally(() => setLoading(false));
   }, []);
+
+  const getProducts = async () => {
+    const response = await fetch("/api/products", {
+      cache: "no-cache",
+    });
+    const products: Product[] = await response.json();
+
+    dispatch(setProducts(products));
+  };
+
   return (
     <div>
       <div className="page-top">

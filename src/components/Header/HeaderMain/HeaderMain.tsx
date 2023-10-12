@@ -15,6 +15,9 @@ import { createPortal } from "react-dom";
 import HeaderBurgerContent from "@/components/Header/HeaderBurgerContent/HeaderBurgerContent";
 import { is } from "immutable";
 import Cart from "@/components/Cart/Cart";
+import { fetchSignInMethodsForEmail } from "firebase/auth";
+import { auth } from "@/utils/firebase/firebase";
+import { getAuth } from "@firebase/auth";
 
 const HeaderMain = () => {
   const [isVisible, setVisible] = useState(false);
@@ -66,7 +69,17 @@ const HeaderMain = () => {
       <HeaderNav />
       <div className="header-buttons">
         <MagnifyingGlassIcon className="h-6 w-6 text-gray-400" />
-        <UserIcon className="h-6 w-6 text-gray-400" />
+        <UserIcon
+          className="h-6 w-6 text-gray-400"
+          onClick={async () => {
+            await fetchSignInMethodsForEmail(
+              getAuth(),
+              "apowhymsa@gmail.com",
+            ).then((methods) => {
+              console.log(methods);
+            });
+          }}
+        />
         <span className="header-main-divider"></span>
         <ShoppingCartIcon
           className={[

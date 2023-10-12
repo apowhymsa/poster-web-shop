@@ -2,13 +2,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/types";
 import "../Products.scss";
-import { useAppDispatch } from "@/utils/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/utils/store/hooks";
 import { setCartItem } from "@/utils/store/cartSlice";
 import products from "@/components/Products/Products";
 import { useContext, useEffect } from "react";
 import { onAuthStateChanged } from "@firebase/auth";
-import { auth } from "@/utils/firebase/firebase";
+import { auth, db } from "@/utils/firebase/firebase";
 import { AuthContext } from "@/contexts/AuthContext/AuthContext";
+import { toast } from "react-toastify";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  setDoc,
+  where,
+  updateDoc,
+  FieldValue,
+  arrayUnion,
+  increment,
+} from "@firebase/firestore";
+import { update } from "immutable";
 
 type Props = {
   product: Product;
@@ -17,6 +33,8 @@ type Props = {
 const ProductItem = ({ product, isButtonVisible = true }: Props) => {
   const { isLoading, isLogged } = useContext(AuthContext);
   const dispatch = useAppDispatch();
+  const cart = useAppSelector((state) => state.cartReducer).cart;
+
   return (
     <div className="product-item">
       <Link className="product-image" href={`/products/${product.product_id}`}>
@@ -58,9 +76,21 @@ const ProductItem = ({ product, isButtonVisible = true }: Props) => {
       </div>
       {isButtonVisible ? (
         <button
-          onClick={() => {
+          onClick={async () => {
             if (!isLogged) {
-              console.log("user not auth");
+              toast.error(
+                "Чтобы добавить товар в корзину, войдите в учётную запись!",
+                {
+                  position: "bottom-right",
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "colored",
+                },
+              );
             } else {
               dispatch(
                 setCartItem({
