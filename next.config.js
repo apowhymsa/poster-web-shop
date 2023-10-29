@@ -16,6 +16,11 @@ const nextConfig = {
       },
     ],
   },
+  env: {
+    LIQPAY_PUBLIC: 'sandbox_i48537052364',
+    LIQPAY_PRIVATE: 'sandbox_ChdqptB0uycfzyRv4L27m2A9ibndyJrKDxvDSTig',
+    GOOGLE_API_KEY: 'AIzaSyAOgRCpjCpoIfNeyDL5CxW2nVt0hD1iexo'
+  },
   async headers() {
     return [
       {

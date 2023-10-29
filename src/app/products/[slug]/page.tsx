@@ -19,8 +19,10 @@ import load = Simulate.load
 import Skeleton from 'react-loading-skeleton'
 import { AuthContext } from '@/contexts/AuthContext/AuthContext'
 import { createPortal } from 'react-dom'
+import useToast from "@/hooks/useToast";
 
 const Page = ({ params }: { params: { slug: string } }) => {
+	const {error, info} = useToast();
 	const { isLoading, isLogged } = useContext(AuthContext)
 	const products = useAppSelector(state => state.productsReducer).products
 	const [product, setProduct] = useState<Product>()
@@ -138,7 +140,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
 								setQuantity={setQuantity}
 								onClick={() => {
 									if (!isLogged) {
-										console.log('user not auth')
+										error('Для добавления товара в корзину зайдите в аккаунт');
 									} else {
 										dispatch(
 											setCartItem({
@@ -146,6 +148,8 @@ const Page = ({ params }: { params: { slug: string } }) => {
 												quantity: quantity,
 											})
 										)
+
+										info('Товар успешно добавлен в корзину');
 									}
 								}}
 							/>
@@ -155,6 +159,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
 						<Skeleton />
 					) : (
 						<ProductOverview
+							productId={product?.product_id}
 							classNameContainer={'product-additional-info w-full'}
 							setTab={setTab}
 							tab={tab}
@@ -164,6 +169,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
 			</div>
 
 			<ProductOverviewMobile
+				productId={product?.product_id}
 				classNameContainer={'product-additional-info-mobile w-full my-4'}
 				setTab={setTab}
 				tab={tab}

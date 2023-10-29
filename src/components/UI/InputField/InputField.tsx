@@ -7,7 +7,6 @@ import {
   UseFormRegister,
 } from "react-hook-form";
 import { IFormValues } from "@/components/ModalSignUp/ModalSignUpStep2";
-import { IFormValuesStep1 } from "@/components/ModalSignUp/ModalSignUpStep1";
 
 interface InputFieldProps extends React.AllHTMLAttributes<HTMLInputElement> {
   labelText: string;

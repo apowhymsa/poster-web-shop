@@ -25,12 +25,14 @@ import {
   increment,
 } from "@firebase/firestore";
 import { update } from "immutable";
+import useToast from "@/hooks/useToast";
 
 type Props = {
   product: Product;
   isButtonVisible?: boolean;
 };
 const ProductItem = ({ product, isButtonVisible = true }: Props) => {
+  const {info, error} = useToast();
   const { isLoading, isLogged } = useContext(AuthContext);
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.cartReducer).cart;
@@ -78,26 +80,17 @@ const ProductItem = ({ product, isButtonVisible = true }: Props) => {
         <button
           onClick={async () => {
             if (!isLogged) {
-              toast.error(
-                "Чтобы добавить товар в корзину, войдите в учётную запись!",
-                {
-                  position: "bottom-right",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  theme: "colored",
-                },
-              );
+              error(
+                "Чтобы добавить товар в корзину, войдите в учётную запись!");
             } else {
               dispatch(
                 setCartItem({
                   product: product,
                   quantity: 1,
-                }),
+                })
               );
+
+              info('Товар успешно добавлен в корзину');
             }
           }}
           className="border border-rose-400 text-rose-400 px-4 py-2 rounded transition-colors hover:bg-rose-400 hover:text-white"

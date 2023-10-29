@@ -28,6 +28,10 @@ const NavigationContextProvider = ({
         setNavigation([false, false, true]);
         break;
       }
+      default: {
+        setNavigation([false, false, false]);
+        break;
+      }
     }
   }, [route]);
 

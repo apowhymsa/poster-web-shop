@@ -62,12 +62,32 @@ export const cartSlice = createSlice({
         { merge: true },
       );
     },
+    deleteItem: (state, action: PayloadAction<Cart>) => {
+      const userId = localStorage.getItem("authUserId");
+      state.cart = state.cart.filter(cartItem => cartItem.product.product_id !== action.payload.product.product_id)
+      const setDocPromise = setDoc(
+          doc(db, "users", userId!.toString()),
+          {
+            cart: [...state.cart],
+          },
+          { merge: true },
+      );
+    },
     clearCart: (state) => {
+      const userId = localStorage.getItem("authUserId");
       state.cart = [];
+
+      const setDocPromise = setDoc(
+          doc(db, "users", userId!.toString()),
+          {
+            cart: [],
+          },
+          { merge: true },
+      );
     },
   },
 });
 
-export const { setCartItem, updateQuantity, clearCart, setCart } =
+export const { setCartItem, updateQuantity, deleteItem, clearCart, setCart } =
   cartSlice.actions;
 export default cartSlice.reducer;

@@ -3,10 +3,10 @@
 import Select, { SingleValue } from "react-select";
 
 const options = [
-  { value: "1", label: "Популярные" },
-  { value: "2", label: "Новые" },
-  { value: "3", label: "Цена: Низкая - Высокая" },
-  { value: "4", label: "Цена: Высокая - Низкая" },
+  { value: "1", label: "Популярные", disabled: true },
+  { value: "2", label: "Новые", disabled: true },
+  { value: "3", label: "Цена: Низкая - Высокая", disabled: true },
+  { value: "4", label: "Цена: Высокая - Низкая", disabled: true },
 ];
 
 type Props = {
@@ -22,6 +22,19 @@ const SortSelect = (props: Props) => {
       options={options}
       className="w-[245px]"
       onChange={onChangeHandler}
+
+      styles={{
+        control: (base, state) => ({
+          ...base,
+          outline: state.isFocused ? '1px solid #fb7185 !important' : base.outline,
+          border: state.isFocused ? '1px solid #fb7185 !important' : base.border
+        }),
+        option: (base, state) => ({
+          ...base,
+          backgroundColor: state.isFocused ? '#fda4af' : state.isSelected ? '#fb7185' : base.backgroundColor,
+          color: state.isFocused || state.isSelected ? 'white' : 'black'
+        })
+      }}
       defaultValue={
         Number(defaultValue) > 3
           ? options[0]

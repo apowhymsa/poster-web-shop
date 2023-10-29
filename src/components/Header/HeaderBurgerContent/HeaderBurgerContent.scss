@@ -3,7 +3,7 @@ body {
 }
 
 .burger-content {
-  @apply hidden bg-gray-900 animate-widthShrink absolute h-screen w-full -left-full z-50;
+  @apply hidden bg-gray-900 animate-widthShrink absolute h-screen w-full top-0 -left-full z-50;
 
   & > .burger-content-close {
     @apply absolute right-10 top-10;

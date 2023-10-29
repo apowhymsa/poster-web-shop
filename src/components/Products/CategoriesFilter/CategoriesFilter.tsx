@@ -42,7 +42,6 @@ const CategoriesFilter = (props: Props) => {
           <h3 className="font-medium text-gray-900 mb-2">Категории</h3>
           <div className="category-grid grid grid-cols-6 gap-5 gap-y-4">
             {categories.map((category, index) => (
-              <>
                 <div
                   key={category.category_id}
                   className="flex items-center gap-x-2 flex-0"
@@ -57,7 +56,7 @@ const CategoriesFilter = (props: Props) => {
                     }
                     value={category.category_id}
                     id={category.category_id}
-                    className="h-4 w-4 rounded checked:text-gray-300 shadow-sm focus:bg-rose-400 accent-rose-300 focus:border-rose-400 focus:ring focus:ring-rose-300 focus:ring-offset-0 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:text-gray-400"
+                    className="h-4 w-4 rounded checked:text-rose-400 shadow-sm text-rose-400 focus:border-rose-300 focus:ring focus:ring-rose-200 focus:ring-offset-0 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:text-gray-400"
                   />
                   <label
                     htmlFor={category.category_id}
@@ -66,76 +65,6 @@ const CategoriesFilter = (props: Props) => {
                     {category.category_name}
                   </label>
                 </div>
-                <div
-                  key={category.category_id}
-                  className="flex items-center gap-x-2 flex-0"
-                >
-                  <input
-                    onChange={onChangeFilterCategoriesHandler}
-                    type="checkbox"
-                    checked={
-                      !!categoriesFilter.find(
-                        (value) => value === category.category_id,
-                      ) || false
-                    }
-                    value={category.category_id}
-                    id={category.category_id}
-                    className="h-4 w-4 rounded checked:text-gray-300 shadow-sm focus:bg-rose-400 accent-rose-300 focus:border-rose-400 focus:ring focus:ring-rose-300 focus:ring-offset-0 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:text-gray-400"
-                  />
-                  <label
-                    htmlFor={category.category_id}
-                    className="text-sm text-gray-700"
-                  >
-                    {category.category_name}
-                  </label>
-                </div>
-                <div
-                  key={category.category_id}
-                  className="flex items-center gap-x-2 flex-0"
-                >
-                  <input
-                    onChange={onChangeFilterCategoriesHandler}
-                    type="checkbox"
-                    checked={
-                      !!categoriesFilter.find(
-                        (value) => value === category.category_id,
-                      ) || false
-                    }
-                    value={category.category_id}
-                    id={category.category_id}
-                    className="h-4 w-4 rounded checked:text-gray-300 shadow-sm focus:bg-rose-400 accent-rose-300 focus:border-rose-400 focus:ring focus:ring-rose-300 focus:ring-offset-0 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:text-gray-400"
-                  />
-                  <label
-                    htmlFor={category.category_id}
-                    className="text-sm text-gray-700"
-                  >
-                    {category.category_name}
-                  </label>
-                </div>
-                <div
-                  key={category.category_id}
-                  className="flex items-center gap-x-2 flex-0"
-                >
-                  <input
-                    onChange={onChangeFilterCategoriesHandler}
-                    type="checkbox"
-                    checked={
-                      !!categoriesFilter.find(
-                        (value) => value === category.category_id,
-                      ) || false
-                    }
-                    value={category.category_id}
-                    id={category.category_id}
-                    className="h-4 w-4 rounded checked:text-gray-300 shadow-sm focus:bg-rose-400 accent-rose-300 focus:border-rose-400 focus:ring focus:ring-rose-300 focus:ring-offset-0 focus:ring-opacity-50 disabled:cursor-not-allowed disabled:text-gray-400"
-                  />
-                  <label
-                    htmlFor={category.category_id}
-                    className="text-sm text-gray-700"
-                  >
-                    {category.category_name}
-                  </label>
-                </div>
-              </>
             ))}
           </div>
         </div>

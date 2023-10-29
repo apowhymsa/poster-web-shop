@@ -6,15 +6,15 @@
 .example-thumb {
   font-size: 0.9em;
   text-align: center;
-  top: 6px;
+  top: 3px;
   color: white;
   cursor: pointer;
   box-sizing: border-box;
-  @apply flex items-center justify-center bg-rose-400 border border-[#9ca3af] rounded-[3px] z-0;
+  @apply flex items-center justify-center bg-rose-400 rounded-full z-0;
 }
 
 .example-thumb.active {
-  background-color: grey;
+  @apply bg-rose-500;
 }
 
 .example-track {
@@ -46,8 +46,8 @@
 }
 
 .horizontal-slider .example-thumb {
-  width: 20px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   z-index: 0;
 }
 

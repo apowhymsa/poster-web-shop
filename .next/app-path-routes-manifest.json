@@ -1,0 +1,12 @@
+{
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/",
+  "/about-us/page": "/about-us",
+  "/checkout/page": "/checkout",
+  "/api/categories/route": "/api/categories",
+  "/api/products/route": "/api/products",
+  "/api/user/route": "/api/user",
+  "/products/page": "/products",
+  "/api/product/[slug]/route": "/api/product/[slug]",
+  "/products/[slug]/page": "/products/[slug]"
+}

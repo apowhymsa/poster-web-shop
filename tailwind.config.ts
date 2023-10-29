@@ -26,7 +26,7 @@ const config: Config = {
     },
     colors: {
       ...colors,
-      "purple-primary": "#fb7185",
+      "primary": "#fb7185",
     },
   },
   plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
