@@ -152,7 +152,7 @@ const Checkout = () => {
             }
         }
 
-        axios.post('https://f9p739-42889.csb.app/payment', {
+        axios.post('https://poster-shop-server.onrender.com/payment', {
             ...params
         }, {
             headers: {
