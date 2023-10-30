@@ -46,10 +46,14 @@ var route_kind = __webpack_require__(19513);
 var next_response = __webpack_require__(89335);
 ;// CONCATENATED MODULE: ./src/app/api/products/route.ts
 
-const URL = `${process.env.POSTER_API_URL}/menu.getProducts?token=${process.env.POSTER_API_ACCESS_TOKEN}&type=batchtickets`;
+const URL = `${"https://joinposter.com/api"}/menu.getProducts?token=${"198381:78956798666468f0d7fde56893b15402"}&type=batchtickets`;
 async function GET() {
     console.log(URL);
     const response = await fetch(URL, {
+        method: "GET",
+        // next: {
+        //   revalidate: 10
+        // }
         cache: "no-cache"
     });
     const products = await response.json();

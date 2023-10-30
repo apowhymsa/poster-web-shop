@@ -48,8 +48,11 @@ var next_response = __webpack_require__(89335);
 
 async function GET(req) {
     const productID = req.nextUrl.pathname.split("/")[3];
-    const URL = `${process.env.POSTER_API_URL}/menu.getProduct?token=${process.env.POSTER_API_ACCESS_TOKEN}&product_id=${productID}`;
-    const response = await fetch(URL);
+    const URL = `${"https://joinposter.com/api"}/menu.getProduct?token=${"198381:78956798666468f0d7fde56893b15402"}&product_id=${productID}`;
+    const response = await fetch(URL, {
+        method: "GET",
+        cache: "no-cache"
+    });
     const data = await response.json();
     return next_response/* default */.Z.json(data.response);
 }

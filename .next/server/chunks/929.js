@@ -1055,7 +1055,10 @@ var PhoneIcon = __webpack_require__(90880);
 var UserIcon = __webpack_require__(78750);
 // EXTERNAL MODULE: ./node_modules/firebase/auth/dist/index.mjs
 var dist = __webpack_require__(948);
+// EXTERNAL MODULE: ./node_modules/axios/lib/axios.js + 46 modules
+var axios = __webpack_require__(93258);
 ;// CONCATENATED MODULE: ./src/components/ModalSignUp/ModalSignUpStep2.tsx
+
 
 
 
@@ -1084,8 +1087,7 @@ const ModalSignUpStep2 = (props)=>{
                 phone: userFields?.phone
             };
             (0,dist/* createUserWithEmailAndPassword */.Xb)(firebase/* auth */.I, userFields?.email, userFields?.password).then(()=>{
-                fetch("/api/user", {
-                    method: "POST",
+                axios/* default */.Z.post("/api/user", {
                     body: JSON.stringify(requestBody)
                 }).then(async ()=>{
                     await (0,index_node/* addDoc */.ET)((0,index_node/* collection */.hJ)(firebase.db, "users"), {

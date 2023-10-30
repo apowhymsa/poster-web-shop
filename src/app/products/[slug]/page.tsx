@@ -20,6 +20,7 @@ import Skeleton from 'react-loading-skeleton'
 import { AuthContext } from '@/contexts/AuthContext/AuthContext'
 import { createPortal } from 'react-dom'
 import useToast from "@/hooks/useToast";
+import axios from "axios";
 
 const Page = ({ params }: { params: { slug: string } }) => {
 	const {error, info} = useToast();
@@ -33,17 +34,13 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
 	useEffect(() => {
 		const getProducts = async () => {
-			const response = await fetch('/api/products/', {
-				cache: 'no-cache',
-			})
-			const products: Product[] = await response.json()
+			const response = await axios.get('/api/products/')
+			const products: Product[] = await response.data
 			dispatch(setProducts(products))
 		}
 		const getProduct = async () => {
-			const response = await fetch('/api/product/' + params.slug, {
-				cache: 'no-cache',
-			})
-			const product: Product = await response.json()
+			const response = await axios.get('/api/product/' + params.slug)
+			const product: Product = await response.data
 			setProduct(product)
 		}
 

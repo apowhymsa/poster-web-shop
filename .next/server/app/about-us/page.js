@@ -228,6 +228,14 @@ module.exports = require("next/dist/shared/lib/utils/warn-once");
 
 /***/ }),
 
+/***/ 39491:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("assert");
+
+/***/ }),
+
 /***/ 6113:
 /***/ ((module) => {
 
@@ -329,6 +337,14 @@ module.exports = require("stream");
 
 "use strict";
 module.exports = require("tls");
+
+/***/ }),
+
+/***/ 76224:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("tty");
 
 /***/ }),
 
@@ -489,7 +505,7 @@ const Page = ()=>{
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [587,524,929], () => (__webpack_exec__(93961)));
+var __webpack_exports__ = __webpack_require__.X(0, [587,411,929], () => (__webpack_exec__(93961)));
 module.exports = __webpack_exports__;
 
 })();

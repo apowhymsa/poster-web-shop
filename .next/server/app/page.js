@@ -228,6 +228,14 @@ module.exports = require("next/dist/shared/lib/utils/warn-once");
 
 /***/ }),
 
+/***/ 39491:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("assert");
+
+/***/ }),
+
 /***/ 6113:
 /***/ ((module) => {
 
@@ -332,6 +340,14 @@ module.exports = require("tls");
 
 /***/ }),
 
+/***/ 76224:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("tty");
+
+/***/ }),
+
 /***/ 57310:
 /***/ ((module) => {
 
@@ -390,7 +406,7 @@ const tree = {
         '',
         {
         children: ['__PAGE__', {}, {
-          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 78159)), "D:\\Projects\\poster-web-shop\\src\\app\\page.tsx"],
+          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 21707)), "D:\\Projects\\poster-web-shop\\src\\app\\page.tsx"],
           metadata: {
     icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 73881))).default(props))],
     apple: [],
@@ -445,35 +461,33 @@ const routeModule = new AppPageRouteModule({
 
 /***/ }),
 
-/***/ 12577:
+/***/ 56314:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 73813))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 99835))
 
 /***/ }),
 
-/***/ 73813:
+/***/ 99835:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Home)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(56786);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18038);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _products_ProductsPage_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(24342);
-/* harmony import */ var _products_ProductsPage_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_products_ProductsPage_scss__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_SwiperProducts_SwiperProducts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(58512);
-/* harmony import */ var _utils_store_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(72285);
-/* harmony import */ var _utils_store_productSlice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(1923);
-/* harmony import */ var _heroicons_react_24_outline_esm_ArrowRightIcon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(12129);
-/* harmony import */ var _heroicons_react_24_outline_esm_PresentationChartLineIcon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(16518);
-/* harmony import */ var _heroicons_react_24_outline_esm_RocketLaunchIcon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(68698);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(11440);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11440);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _heroicons_react_24_outline_esm_ArrowRightIcon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(12129);
+/* harmony import */ var _heroicons_react_24_outline_esm_PresentationChartLineIcon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(16518);
+/* harmony import */ var _heroicons_react_24_outline_esm_RocketLaunchIcon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(68698);
+/* harmony import */ var _components_SwiperProducts_SwiperProducts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(58512);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(18038);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _utils_store_productSlice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1923);
+/* harmony import */ var _utils_store_hooks__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(72285);
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
 
@@ -483,24 +497,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-function Home() {
-    const products = (0,_utils_store_hooks__WEBPACK_IMPORTED_MODULE_4__/* .useAppSelector */ .C)((state)=>state.productsReducer).products;
-    const dispatch = (0,_utils_store_hooks__WEBPACK_IMPORTED_MODULE_4__/* .useAppDispatch */ .T)();
-    const [isLoading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
-        setLoading(true);
-        Promise.all([
-            getProducts()
-        ]).finally(()=>setLoading(false));
+const HomeComponent = (props)=>{
+    const { productsData, isLoadingData } = props;
+    const [isLoading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(isLoadingData);
+    const dispatch = (0,_utils_store_hooks__WEBPACK_IMPORTED_MODULE_5__/* .useAppDispatch */ .T)();
+    const products = (0,_utils_store_hooks__WEBPACK_IMPORTED_MODULE_5__/* .useAppSelector */ .C)((state)=>state.productsReducer.products);
+    (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(()=>{
+        dispatch((0,_utils_store_productSlice__WEBPACK_IMPORTED_MODULE_4__/* .setProducts */ .RU)(productsData));
+        setLoading(false);
     }, []);
-    const getProducts = async ()=>{
-        const response = await fetch("/api/products", {
-            cache: "no-cache"
-        });
-        const products = await response.json();
-        dispatch((0,_utils_store_productSlice__WEBPACK_IMPORTED_MODULE_5__/* .setProducts */ .RU)(products));
-    };
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
@@ -520,7 +525,7 @@ function Home() {
                                 className: "text-2xl font-medium",
                                 children: "Популярные товары"
                             }),
-                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)((next_link__WEBPACK_IMPORTED_MODULE_6___default()), {
+                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                                 href: "/products?sort=1&price=0-10000",
                                 className: "underline text-rose-400 flex gap-x-2 items-center",
                                 title: "Перейти в каталог товаров",
@@ -528,14 +533,14 @@ function Home() {
                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
                                         children: "Перейти в каталог"
                                     }),
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_heroicons_react_24_outline_esm_ArrowRightIcon__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z, {
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_heroicons_react_24_outline_esm_ArrowRightIcon__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {
                                         className: "h-5 w-5 text-rose-400"
                                     })
                                 ]
                             })
                         ]
                     }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_SwiperProducts_SwiperProducts__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_SwiperProducts_SwiperProducts__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
                         isLoading: isLoading,
                         breakpoints: {
                             320: {
@@ -561,7 +566,7 @@ function Home() {
                     /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                         className: "flex gap-x-3 items-center transition-colors hover:text-rose-400",
                         children: [
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_heroicons_react_24_outline_esm_RocketLaunchIcon__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .Z, {
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_heroicons_react_24_outline_esm_RocketLaunchIcon__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z, {
                                 className: "w-8 h-8 text-black"
                             }),
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
@@ -572,7 +577,7 @@ function Home() {
                     /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                         className: "flex gap-x-3 items-center transition-colors hover:text-rose-400",
                         children: [
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_heroicons_react_24_outline_esm_PresentationChartLineIcon__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z, {
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_heroicons_react_24_outline_esm_PresentationChartLineIcon__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .Z, {
                                 className: "w-8 h-8 text-black"
                             }),
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
@@ -592,7 +597,7 @@ function Home() {
                                 className: "text-2xl font-medium",
                                 children: "Новые товары"
                             }),
-                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)((next_link__WEBPACK_IMPORTED_MODULE_6___default()), {
+                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                                 href: "/products?sort=2&price=0-10000",
                                 className: "underline text-rose-400 flex gap-x-2 items-center",
                                 title: "Перейти в каталог товаров",
@@ -600,14 +605,14 @@ function Home() {
                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
                                         children: "Перейти в каталог"
                                     }),
-                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_heroicons_react_24_outline_esm_ArrowRightIcon__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z, {
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_heroicons_react_24_outline_esm_ArrowRightIcon__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {
                                         className: "h-5 w-5 text-rose-400"
                                     })
                                 ]
                             })
                         ]
                     }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_SwiperProducts_SwiperProducts__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_SwiperProducts_SwiperProducts__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
                         isLoading: isLoading,
                         breakpoints: {
                             320: {
@@ -631,24 +636,33 @@ function Home() {
             })
         ]
     });
-}
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomeComponent);
 
 
 /***/ }),
 
-/***/ 78159:
+/***/ 21707:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   $$typeof: () => (/* binding */ $$typeof),
-/* harmony export */   __esModule: () => (/* binding */ __esModule),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(61363);
 
-const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`D:\Projects\poster-web-shop\src\app\page.tsx`)
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ Home)
+});
+
+// EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(56786);
+// EXTERNAL MODULE: ./src/app/products/ProductsPage.scss
+var ProductsPage = __webpack_require__(63081);
+// EXTERNAL MODULE: ./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js
+var module_proxy = __webpack_require__(61363);
+;// CONCATENATED MODULE: ./src/components/HomeComponent.tsx
+
+const proxy = (0,module_proxy.createProxy)(String.raw`D:\Projects\poster-web-shop\src\components\HomeComponent.tsx`)
 
 // Accessing the __esModule property and exporting $$typeof are required here.
 // The __esModule getter forces the proxy target to create the default export
@@ -658,13 +672,24 @@ const { __esModule, $$typeof } = proxy;
 const __default__ = proxy.default;
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);
+/* harmony default export */ const HomeComponent = (__default__);
+;// CONCATENATED MODULE: ./src/app/page.tsx
 
-/***/ }),
 
-/***/ 24342:
-/***/ (() => {
 
+const getProducts = async ()=>{
+    const response = await fetch(`${"https://joinposter.com/api"}/menu.getProducts?token=${"198381:78956798666468f0d7fde56893b15402"}&type=batchtickets`, {
+        cache: "no-store"
+    });
+    return await response.json();
+};
+async function Home() {
+    const products = await getProducts();
+    return /*#__PURE__*/ jsx_runtime_.jsx(HomeComponent, {
+        productsData: products.response,
+        isLoadingData: true
+    });
+}
 
 
 /***/ })
@@ -676,7 +701,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [587,524,33,806,929,754,512], () => (__webpack_exec__(36394)));
+var __webpack_exports__ = __webpack_require__.X(0, [587,411,33,806,929,165,512], () => (__webpack_exec__(36394)));
 module.exports = __webpack_exports__;
 
 })();

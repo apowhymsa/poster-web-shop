@@ -14,6 +14,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { addDoc, collection, getDocs, query, where } from "@firebase/firestore";
 import { auth, db } from "@/utils/firebase/firebase";
 import useToast from "@/hooks/useToast";
+import axios from "axios";
 
 type Props = {
   onClose: () => void;
@@ -63,8 +64,7 @@ const ModalSignUpStep2 = (props: Props) => {
         userFields?.email!,
         userFields?.password!,
       ).then(() => {
-        fetch("/api/user", {
-          method: "POST",
+        axios.post("/api/user", {
           body: JSON.stringify(requestBody),
         })
           .then(async () => {

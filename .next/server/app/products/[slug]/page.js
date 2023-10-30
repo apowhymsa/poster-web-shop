@@ -228,6 +228,14 @@ module.exports = require("next/dist/shared/lib/utils/warn-once");
 
 /***/ }),
 
+/***/ 39491:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("assert");
+
+/***/ }),
+
 /***/ 6113:
 /***/ ((module) => {
 
@@ -329,6 +337,14 @@ module.exports = require("stream");
 
 "use strict";
 module.exports = require("tls");
+
+/***/ }),
+
+/***/ 76224:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("tty");
 
 /***/ }),
 
@@ -995,8 +1011,11 @@ var cartSlice = __webpack_require__(6750);
 var dist = __webpack_require__(43285);
 // EXTERNAL MODULE: ./src/contexts/AuthContext/AuthContext.ts
 var AuthContext = __webpack_require__(50426);
+// EXTERNAL MODULE: ./node_modules/axios/lib/axios.js + 46 modules
+var axios = __webpack_require__(93258);
 ;// CONCATENATED MODULE: ./src/app/products/[slug]/page.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
+
 
 
 
@@ -1022,17 +1041,13 @@ const Page = ({ params })=>{
     const dispatch = (0,hooks/* useAppDispatch */.T)();
     (0,react_.useEffect)(()=>{
         const getProducts = async ()=>{
-            const response = await fetch("/api/products/", {
-                cache: "no-cache"
-            });
-            const products = await response.json();
+            const response = await axios/* default */.Z.get("/api/products/");
+            const products = await response.data;
             dispatch((0,productSlice/* setProducts */.RU)(products));
         };
         const getProduct = async ()=>{
-            const response = await fetch("/api/product/" + params.slug, {
-                cache: "no-cache"
-            });
-            const product = await response.json();
+            const response = await axios/* default */.Z.get("/api/product/" + params.slug);
+            const product = await response.data;
             setProduct(product);
         };
         Promise.all([
@@ -1286,13 +1301,6 @@ const Layout = ({ children })=>{
 
 /***/ }),
 
-/***/ 63081:
-/***/ (() => {
-
-
-
-/***/ }),
-
 /***/ 50554:
 /***/ (() => {
 
@@ -1307,7 +1315,7 @@ const Layout = ({ children })=>{
 var __webpack_require__ = require("../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [587,524,33,577,929,754,512], () => (__webpack_exec__(53379)));
+var __webpack_exports__ = __webpack_require__.X(0, [587,411,33,577,929,165,512], () => (__webpack_exec__(53379)));
 module.exports = __webpack_exports__;
 
 })();

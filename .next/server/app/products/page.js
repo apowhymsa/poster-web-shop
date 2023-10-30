@@ -228,6 +228,14 @@ module.exports = require("next/dist/shared/lib/utils/warn-once");
 
 /***/ }),
 
+/***/ 39491:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("assert");
+
+/***/ }),
+
 /***/ 6113:
 /***/ ((module) => {
 
@@ -332,6 +340,14 @@ module.exports = require("tls");
 
 /***/ }),
 
+/***/ 76224:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("tty");
+
+/***/ }),
+
 /***/ 57310:
 /***/ ((module) => {
 
@@ -393,7 +409,7 @@ const tree = {
         'products',
         {
         children: ['__PAGE__', {}, {
-          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 60972)), "D:\\Projects\\poster-web-shop\\src\\app\\products\\page.tsx"],
+          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 42776)), "D:\\Projects\\poster-web-shop\\src\\app\\products\\page.tsx"],
           
         }]
       },
@@ -461,14 +477,14 @@ const routeModule = new AppPageRouteModule({
 
 /***/ }),
 
-/***/ 97876:
+/***/ 32292:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 7045))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 57360))
 
 /***/ }),
 
-/***/ 7045:
+/***/ 57360:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -477,13 +493,13 @@ __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ page)
+  "default": () => (/* binding */ components_ProductsComponent)
 });
 
 // EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(56786);
-// EXTERNAL MODULE: ./src/app/products/ProductsPage.scss
-var ProductsPage = __webpack_require__(24342);
+// EXTERNAL MODULE: ./node_modules/@heroicons/react/24/solid/esm/FunnelIcon.js
+var FunnelIcon = __webpack_require__(20220);
 // EXTERNAL MODULE: ./node_modules/react-select/dist/react-select.esm.js + 51 modules
 var react_select_esm = __webpack_require__(90385);
 ;// CONCATENATED MODULE: ./src/components/Products/SortSelect/SortSelect.tsx
@@ -534,61 +550,16 @@ const SortSelect = (props)=>{
 };
 /* harmony default export */ const SortSelect_SortSelect = (SortSelect);
 
-// EXTERNAL MODULE: ./node_modules/@heroicons/react/24/solid/esm/FunnelIcon.js
-var FunnelIcon = __webpack_require__(20220);
-// EXTERNAL MODULE: ./src/components/Products/Products.scss
-var Products = __webpack_require__(66134);
-// EXTERNAL MODULE: ./src/utils/store/hooks.ts
-var hooks = __webpack_require__(72285);
-// EXTERNAL MODULE: ./src/components/Products/ProductItem/ProductItem.tsx
-var ProductItem = __webpack_require__(85713);
-// EXTERNAL MODULE: external "next/dist/compiled/react"
-var react_ = __webpack_require__(18038);
-// EXTERNAL MODULE: ./src/components/Products/ProductItem/ProductItemSkeleton.tsx
-var ProductItemSkeleton = __webpack_require__(89025);
-;// CONCATENATED MODULE: ./src/components/Products/Products.tsx
-
-
-
-
-
-
-const Products_Products = (props)=>{
-    const { isLoading } = props;
-    const skeletonArray = (0,react_.useMemo)(()=>[
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ], []);
-    const products = (0,hooks/* useAppSelector */.C)((state)=>state.productsReducer).filteredProducts;
-    return /*#__PURE__*/ jsx_runtime_.jsx("section", {
-        className: "products-container",
-        children: isLoading ? skeletonArray.map(()=>/*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
-                children: /*#__PURE__*/ jsx_runtime_.jsx(ProductItemSkeleton/* default */.Z, {})
-            })) : products.length <= 0 ? /*#__PURE__*/ jsx_runtime_.jsx("div", {
-            children: "Нет товаров по применённым фильтрам"
-        }) : products.map((product)=>/*#__PURE__*/ jsx_runtime_.jsx(ProductItem/* default */.Z, {
-                product: product
-            }, product.product_id))
-    });
-};
-/* harmony default export */ const components_Products_Products = (Products_Products);
-
-// EXTERNAL MODULE: ./src/utils/store/productSlice.ts
-var productSlice = __webpack_require__(1923);
-// EXTERNAL MODULE: ./src/utils/store/categoriesSlice.ts
-var categoriesSlice = __webpack_require__(98953);
 // EXTERNAL MODULE: ./src/components/Products/CategoriesFilter/CategoriesFilter.scss
 var CategoriesFilter = __webpack_require__(99593);
+// EXTERNAL MODULE: ./src/utils/store/hooks.ts
+var hooks = __webpack_require__(72285);
 // EXTERNAL MODULE: ./src/components/UI/RangeSlider/RangeSlider.scss
 var RangeSlider = __webpack_require__(88391);
 // EXTERNAL MODULE: ./node_modules/react-slider/dist/es/prod/components/ReactSlider/ReactSlider.mjs
 var ReactSlider = __webpack_require__(31485);
+// EXTERNAL MODULE: external "next/dist/compiled/react"
+var react_ = __webpack_require__(18038);
 ;// CONCATENATED MODULE: ./src/components/UI/RangeSlider/RangeSlider.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
@@ -700,9 +671,52 @@ const CategoriesFilter_CategoriesFilter = (props)=>{
 };
 /* harmony default export */ const Products_CategoriesFilter_CategoriesFilter = (CategoriesFilter_CategoriesFilter);
 
+// EXTERNAL MODULE: ./src/components/Products/Products.scss
+var Products = __webpack_require__(66134);
+// EXTERNAL MODULE: ./src/components/Products/ProductItem/ProductItem.tsx
+var ProductItem = __webpack_require__(85713);
+// EXTERNAL MODULE: ./src/components/Products/ProductItem/ProductItemSkeleton.tsx
+var ProductItemSkeleton = __webpack_require__(89025);
+;// CONCATENATED MODULE: ./src/components/Products/Products.tsx
+
+
+
+
+
+
+const Products_Products = (props)=>{
+    const { isLoading } = props;
+    const skeletonArray = (0,react_.useMemo)(()=>[
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ], []);
+    const products = (0,hooks/* useAppSelector */.C)((state)=>state.productsReducer).filteredProducts;
+    return /*#__PURE__*/ jsx_runtime_.jsx("section", {
+        className: "products-container",
+        children: isLoading ? skeletonArray.map(()=>/*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+                children: /*#__PURE__*/ jsx_runtime_.jsx(ProductItemSkeleton/* default */.Z, {})
+            })) : products.length <= 0 ? /*#__PURE__*/ jsx_runtime_.jsx("div", {
+            children: "Нет товаров по применённым фильтрам"
+        }) : products.map((product)=>/*#__PURE__*/ jsx_runtime_.jsx(ProductItem/* default */.Z, {
+                product: product
+            }, product.product_id))
+    });
+};
+/* harmony default export */ const components_Products_Products = (Products_Products);
+
 // EXTERNAL MODULE: ./node_modules/next/navigation.js
 var navigation = __webpack_require__(57114);
-;// CONCATENATED MODULE: ./src/app/products/page.tsx
+// EXTERNAL MODULE: ./src/utils/store/productSlice.ts
+var productSlice = __webpack_require__(1923);
+// EXTERNAL MODULE: ./src/utils/store/categoriesSlice.ts
+var categoriesSlice = __webpack_require__(98953);
+;// CONCATENATED MODULE: ./src/components/ProductsComponent.tsx
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
 
@@ -713,10 +727,9 @@ var navigation = __webpack_require__(57114);
 
 
 
-
-const getCategories = async ()=>{};
-const Page = ()=>{
-    const [isLoading, setLoading] = (0,react_.useState)(false);
+const ProductsComponent = (props)=>{
+    const { productsData, categoriesData, isLoadingData } = props;
+    const [isLoading, setLoading] = (0,react_.useState)(isLoadingData);
     const router = (0,navigation.useRouter)();
     const pathname = (0,navigation.usePathname)();
     const searchParams = (0,navigation.useSearchParams)();
@@ -733,6 +746,11 @@ const Page = ()=>{
         10000
     ]);
     (0,react_.useEffect)(()=>{
+        dispatch((0,productSlice/* setProducts */.RU)(productsData));
+        dispatch((0,categoriesSlice/* setCategories */.DG)(categoriesData));
+        setLoading(false);
+    }, []);
+    (0,react_.useEffect)(()=>{
         dispatch((0,productSlice/* filterProducts */.ft)({
             categoriesFilter: categoriesFilter,
             sortFilter: sortFilter,
@@ -743,35 +761,34 @@ const Page = ()=>{
         sortFilter,
         priceFilter
     ]);
-    (0,react_.useEffect)(()=>{
-        setLoading(true);
-        // router.push("/products?category=test");
-        const getProducts = async ()=>{
-            const response = await fetch("/api/products", {
-                cache: "no-cache"
-            });
-            const products = await response.json();
-            dispatch((0,productSlice/* setProducts */.RU)(products));
-        };
-        const getCategories = async ()=>{
-            const response = await fetch("/api/categories", {
-                cache: "no-cache"
-            });
-            const categories = await response.json();
-            dispatch((0,categoriesSlice/* setCategories */.DG)(categories));
-        };
-        Promise.all([
-            getProducts(),
-            getCategories()
-        ]).finally(()=>{
-            dispatch((0,productSlice/* filterProducts */.ft)({
-                categoriesFilter: categoriesFilter,
-                sortFilter: sortFilter,
-                priceFilter: priceFilter
-            }));
-            setLoading(false);
-        });
-    }, []);
+    // useEffect(() => {
+    //     setLoading(true);
+    //     // router.push("/products?category=test");
+    //     const getProducts = async () => {
+    //         const response = await axios.get("/api/products");
+    //         const products: Product[] = await response.data;
+    //
+    //         dispatch(setProducts(products));
+    //     };
+    //
+    //     const getCategories = async () => {
+    //         const response = await axios.get("/api/categories");
+    //         const categories: Category[] = await response.data;
+    //
+    //         dispatch(setCategories(categories));
+    //     };
+    //
+    //     Promise.all([getProducts(), getCategories()]).finally(() => {
+    //         dispatch(
+    //             filterProducts({
+    //                 categoriesFilter: categoriesFilter,
+    //                 sortFilter: sortFilter,
+    //                 priceFilter: priceFilter,
+    //             }),
+    //         );
+    //         setLoading(false);
+    //     });
+    // }, []);
     (0,react_.useEffect)(()=>{
         console.log("pathname changed");
     }, [
@@ -908,7 +925,7 @@ const Page = ()=>{
         ]
     });
 };
-/* harmony default export */ const page = (Page);
+/* harmony default export */ const components_ProductsComponent = (ProductsComponent);
 
 
 /***/ }),
@@ -939,19 +956,27 @@ const Layout = ({ children })=>{
 
 /***/ }),
 
-/***/ 60972:
+/***/ 42776:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   $$typeof: () => (/* binding */ $$typeof),
-/* harmony export */   __esModule: () => (/* binding */ __esModule),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(61363);
 
-const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`D:\Projects\poster-web-shop\src\app\products\page.tsx`)
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ page)
+});
+
+// EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(56786);
+// EXTERNAL MODULE: ./src/app/products/ProductsPage.scss
+var ProductsPage = __webpack_require__(63081);
+// EXTERNAL MODULE: ./node_modules/next/dist/build/webpack/loaders/next-flight-loader/module-proxy.js
+var module_proxy = __webpack_require__(61363);
+;// CONCATENATED MODULE: ./src/components/ProductsComponent.tsx
+
+const proxy = (0,module_proxy.createProxy)(String.raw`D:\Projects\poster-web-shop\src\components\ProductsComponent.tsx`)
 
 // Accessing the __esModule property and exporting $$typeof are required here.
 // The __esModule getter forces the proxy target to create the default export
@@ -961,20 +986,33 @@ const { __esModule, $$typeof } = proxy;
 const __default__ = proxy.default;
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__default__);
-
-/***/ }),
-
-/***/ 63081:
-/***/ (() => {
+/* harmony default export */ const ProductsComponent = (__default__);
+;// CONCATENATED MODULE: ./src/app/products/page.tsx
 
 
 
-/***/ }),
-
-/***/ 24342:
-/***/ (() => {
-
+const getProducts = async ()=>{
+    const response = await fetch(`${"https://joinposter.com/api"}/menu.getProducts?token=${"198381:78956798666468f0d7fde56893b15402"}&type=batchtickets`, {
+        cache: "no-store"
+    });
+    return await response.json();
+};
+const getCategories = async ()=>{
+    const response = await fetch(`${"https://joinposter.com/api"}/menu.getCategories?token=${"198381:78956798666468f0d7fde56893b15402"}`, {
+        cache: "no-store"
+    });
+    return await response.json();
+};
+const Page = async ()=>{
+    const products = await getProducts();
+    const categories = await getCategories();
+    return /*#__PURE__*/ jsx_runtime_.jsx(ProductsComponent, {
+        isLoadingData: true,
+        productsData: products.response,
+        categoriesData: categories.response
+    });
+};
+/* harmony default export */ const page = (Page);
 
 
 /***/ }),
@@ -1000,7 +1038,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [587,524,912,929,754], () => (__webpack_exec__(24718)));
+var __webpack_exports__ = __webpack_require__.X(0, [587,411,912,929,165], () => (__webpack_exec__(24718)));
 module.exports = __webpack_exports__;
 
 })();

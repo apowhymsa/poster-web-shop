@@ -46,9 +46,10 @@ var route_kind = __webpack_require__(19513);
 var next_response = __webpack_require__(89335);
 ;// CONCATENATED MODULE: ./src/app/api/categories/route.ts
 
-const URL = `${process.env.POSTER_API_URL}/menu.getCategories?token=${process.env.POSTER_API_ACCESS_TOKEN}`;
+const URL = `${"https://joinposter.com/api"}/menu.getCategories?token=${"198381:78956798666468f0d7fde56893b15402"}`;
 async function GET() {
     const response = await fetch(URL, {
+        method: "GET",
         cache: "no-cache"
     });
     const categories = await response.json();
