@@ -1,10 +1,15 @@
 import { createContext, Dispatch, SetStateAction } from "react";
 
-type ContextProps = {
+export type OpenDispatch = {
+  step: number,
   isOpen: boolean;
-  setOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+type ContextProps = {
+  isOpen: OpenDispatch;
+  setOpen: Dispatch<SetStateAction<OpenDispatch>>;
 };
 export const ModalContext = createContext<ContextProps>({
-  isOpen: false,
+  isOpen: {isOpen: false, step: 1},
   setOpen: () => {},
 });

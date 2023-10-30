@@ -15,13 +15,14 @@ import { addDoc, collection, getDocs, query, where } from "@firebase/firestore";
 import { auth, db } from "@/utils/firebase/firebase";
 import useToast from "@/hooks/useToast";
 import axios from "axios";
+import {OpenDispatch} from "@/contexts/ModalContext/ModalContext";
 
 type Props = {
   onClose: () => void;
   userFields: UserFields | undefined;
   setUserFields: Dispatch<SetStateAction<UserFields | undefined>>;
   setStep: Dispatch<SetStateAction<number>>;
-  setOpen: Dispatch<SetStateAction<boolean>>;
+  setOpen: Dispatch<SetStateAction<OpenDispatch>>;
 };
 
 export interface IFormValues {

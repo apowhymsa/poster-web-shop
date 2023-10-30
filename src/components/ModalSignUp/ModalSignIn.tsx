@@ -22,8 +22,10 @@ import InputField from "@/components/UI/InputField/InputField";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { auth, db } from "@/utils/firebase/firebase";
 import { getAuth } from "@firebase/auth";
-import { and, collection, getDocs, query, where } from "@firebase/firestore";
+import {and, collection, doc, getDoc, getDocs, query, where} from "@firebase/firestore";
 import useToast from "@/hooks/useToast";
+import {setCart} from "@/utils/store/cartSlice";
+import {useAppDispatch} from "@/utils/store/hooks";
 
 type Props = {
   onClose: () => void;
@@ -43,12 +45,22 @@ export interface IFormValues {
 const ModalSignIn = (props: Props) => {
   const { error, info } = useToast();
   const [isLoading, setLoading] = useState(false);
+  const dispatch = useAppDispatch();
   const { onClose, onClick, userFields, setStep, setUserFields } = props;
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IFormValues>();
+
+  const getCart = async (userAuthId: string) => {
+    const userRef = doc(db, "users", userAuthId!.toString());
+    const userSnapshot = await getDoc(userRef);
+
+    console.log('getCart')
+
+    dispatch(setCart(userSnapshot.data()?.cart || []));
+  };
 
   const onClickLoginHandler = async () => {
     console.log(userFields);
@@ -61,9 +73,11 @@ const ModalSignIn = (props: Props) => {
     );
 
     const querySnapshot = await getDocs(querySearchUserByEmail);
-    localStorage.setItem("authUserId", querySnapshot.docs[0].id);
 
     if (!querySnapshot.empty) {
+      localStorage.setItem("authUserId", querySnapshot.docs[0].id);
+      getCart(querySnapshot.docs[0].id);
+
       signInWithEmailAndPassword(
         auth,
         userFields?.email!,

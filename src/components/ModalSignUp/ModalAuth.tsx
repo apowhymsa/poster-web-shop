@@ -16,7 +16,7 @@ export type UserFields = {
 
 const ModalAuth = () => {
   const { setOpen, isOpen } = useContext(ModalContext);
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
   const [userFields, setUserFields] = useState<UserFields | undefined>({
     name: "",
     phone: "",
@@ -26,7 +26,8 @@ const ModalAuth = () => {
   });
 
   useEffect(() => {
-    if (isOpen) {
+    setStep(isOpen.step);
+    if (isOpen.isOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "visible";
@@ -34,7 +35,7 @@ const ModalAuth = () => {
   }, [isOpen]);
 
   const onCloseModalHandler = () => {
-    setOpen(false);
+    setOpen({step: 1, isOpen: false});
     setStep(1);
     setUserFields({
       name: "",
@@ -45,7 +46,7 @@ const ModalAuth = () => {
     });
   };
 
-  if (!isOpen) {
+  if (!isOpen.isOpen) {
     return null;
   }
 

@@ -45,11 +45,11 @@ const HeaderTop = () => {
           </span>
         ) : (
           <>
-            <span className="text" role="button" onClick={() => setOpen(true)}>
+            <span className="text" role="button" onClick={() => setOpen({step: 1, isOpen: true})}>
               Создать аккаунт
             </span>
             <span className="header-top-divider"></span>
-            <span className="text" role="button" onClick={() => setOpen(true)}>
+            <span className="text" role="button" onClick={() => setOpen({step: 3, isOpen: true})}>
               Войти
             </span>
           </>

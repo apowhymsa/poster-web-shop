@@ -4,9 +4,6 @@ import { AuthContext } from "@/contexts/AuthContext/AuthContext";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "@firebase/auth";
 import {auth, db} from "@/utils/firebase/firebase";
-import {doc, getDoc} from "@firebase/firestore";
-import {setCart} from "@/utils/store/cartSlice";
-import {useAppDispatch} from "@/utils/store/hooks";
 
 const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoading, setLoading] = useState(true);

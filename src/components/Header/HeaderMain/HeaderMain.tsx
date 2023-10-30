@@ -16,10 +16,12 @@ import HeaderBurgerContent from "@/components/Header/HeaderBurgerContent/HeaderB
 import {is} from "immutable";
 import Cart from "@/components/Cart/Cart";
 import {fetchSignInMethodsForEmail} from "firebase/auth";
-import {auth} from "@/utils/firebase/firebase";
-import {getAuth} from "@firebase/auth";
-import {useAppSelector} from "@/utils/store/hooks";
+import {auth, db} from "@/utils/firebase/firebase";
+import {getAuth, onAuthStateChanged} from "@firebase/auth";
+import {useAppDispatch, useAppSelector} from "@/utils/store/hooks";
 import {SearchModal} from "@/components/SearchModal/SearchModal";
+import {doc, getDoc} from "@firebase/firestore";
+import {setCart} from "@/utils/store/cartSlice";
 
 const HeaderMain = () => {
     const [isOpenSearchModal, setOpenSearchModal] = useState(false);
@@ -27,6 +29,7 @@ const HeaderMain = () => {
     const burgerContentRef = useRef<HTMLDivElement>(null);
     const [isOpenCart, setOpenCart] = useState(false);
     const cart = useAppSelector(state => state.cartReducer).cart;
+    const dispatch = useAppDispatch();
 
     const handlerBurgerVisible = () => {
         setVisible((prev) => !prev);
@@ -90,14 +93,6 @@ const HeaderMain = () => {
                 <SearchModal onClose={() => setOpenSearchModal(false)} isOpen={isOpenSearchModal}/>
                 <UserIcon
                     className="h-6 w-6 text-gray-400"
-                    onClick={async () => {
-                        await fetchSignInMethodsForEmail(
-                            getAuth(),
-                            "apowhymsa@gmail.com",
-                        ).then((methods) => {
-                            console.log(methods);
-                        });
-                    }}
                 />
                 <span className="header-main-divider"></span>
                 <div className="relative">

@@ -48628,14 +48628,13 @@ registerCoreComponents('');
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   Xb: () => (/* reexport */ createUserWithEmailAndPassword),
-  Nr: () => (/* reexport */ fetchSignInMethodsForEmail),
   v0: () => (/* reexport */ getAuth),
   Aj: () => (/* reexport */ onAuthStateChanged),
   e5: () => (/* reexport */ signInWithEmailAndPassword),
   w7: () => (/* reexport */ signOut)
 });
 
-// UNUSED EXPORTS: ActionCodeOperation, ActionCodeURL, AuthCredential, AuthErrorCodes, EmailAuthCredential, EmailAuthProvider, FacebookAuthProvider, FactorId, GithubAuthProvider, GoogleAuthProvider, OAuthCredential, OAuthProvider, OperationType, PhoneAuthCredential, PhoneAuthProvider, PhoneMultiFactorGenerator, ProviderId, RecaptchaVerifier, SAMLAuthProvider, SignInMethod, TotpMultiFactorGenerator, TotpSecret, TwitterAuthProvider, applyActionCode, beforeAuthStateChanged, browserLocalPersistence, browserPopupRedirectResolver, browserSessionPersistence, checkActionCode, confirmPasswordReset, connectAuthEmulator, debugErrorMap, deleteUser, getAdditionalUserInfo, getIdToken, getIdTokenResult, getMultiFactorResolver, getRedirectResult, inMemoryPersistence, indexedDBLocalPersistence, initializeAuth, initializeRecaptchaConfig, isSignInWithEmailLink, linkWithCredential, linkWithPhoneNumber, linkWithPopup, linkWithRedirect, multiFactor, onIdTokenChanged, parseActionCodeURL, prodErrorMap, reauthenticateWithCredential, reauthenticateWithPhoneNumber, reauthenticateWithPopup, reauthenticateWithRedirect, reload, sendEmailVerification, sendPasswordResetEmail, sendSignInLinkToEmail, setPersistence, signInAnonymously, signInWithCredential, signInWithCustomToken, signInWithEmailLink, signInWithPhoneNumber, signInWithPopup, signInWithRedirect, unlink, updateCurrentUser, updateEmail, updatePassword, updatePhoneNumber, updateProfile, useDeviceLanguage, validatePassword, verifyBeforeUpdateEmail, verifyPasswordResetCode
+// UNUSED EXPORTS: ActionCodeOperation, ActionCodeURL, AuthCredential, AuthErrorCodes, EmailAuthCredential, EmailAuthProvider, FacebookAuthProvider, FactorId, GithubAuthProvider, GoogleAuthProvider, OAuthCredential, OAuthProvider, OperationType, PhoneAuthCredential, PhoneAuthProvider, PhoneMultiFactorGenerator, ProviderId, RecaptchaVerifier, SAMLAuthProvider, SignInMethod, TotpMultiFactorGenerator, TotpSecret, TwitterAuthProvider, applyActionCode, beforeAuthStateChanged, browserLocalPersistence, browserPopupRedirectResolver, browserSessionPersistence, checkActionCode, confirmPasswordReset, connectAuthEmulator, debugErrorMap, deleteUser, fetchSignInMethodsForEmail, getAdditionalUserInfo, getIdToken, getIdTokenResult, getMultiFactorResolver, getRedirectResult, inMemoryPersistence, indexedDBLocalPersistence, initializeAuth, initializeRecaptchaConfig, isSignInWithEmailLink, linkWithCredential, linkWithPhoneNumber, linkWithPopup, linkWithRedirect, multiFactor, onIdTokenChanged, parseActionCodeURL, prodErrorMap, reauthenticateWithCredential, reauthenticateWithPhoneNumber, reauthenticateWithPopup, reauthenticateWithRedirect, reload, sendEmailVerification, sendPasswordResetEmail, sendSignInLinkToEmail, setPersistence, signInAnonymously, signInWithCredential, signInWithCustomToken, signInWithEmailLink, signInWithPhoneNumber, signInWithPopup, signInWithRedirect, unlink, updateCurrentUser, updateEmail, updatePassword, updatePhoneNumber, updateProfile, useDeviceLanguage, validatePassword, verifyBeforeUpdateEmail, verifyPasswordResetCode
 
 // EXTERNAL MODULE: ./node_modules/@firebase/util/dist/node-esm/index.node.esm.js
 var index_node_esm = __webpack_require__(51780);
@@ -54973,7 +54972,7 @@ async function fetchSignInMethodsForEmail(auth, email) {
         identifier: email,
         continueUri
     };
-    const { signinMethods } = await createAuthUri((0,index_node_esm/* getModularInstance */.m9)(auth), request);
+    const { signinMethods } = await createAuthUri(getModularInstance(auth), request);
     return signinMethods || [];
 }
 /**
@@ -96182,7 +96181,6 @@ var version = "10.4.0";
 
 "use strict";
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Nr: () => (/* reexport safe */ _firebase_auth__WEBPACK_IMPORTED_MODULE_0__.Nr),
 /* harmony export */   Xb: () => (/* reexport safe */ _firebase_auth__WEBPACK_IMPORTED_MODULE_0__.Xb),
 /* harmony export */   e5: () => (/* reexport safe */ _firebase_auth__WEBPACK_IMPORTED_MODULE_0__.e5),
 /* harmony export */   w7: () => (/* reexport safe */ _firebase_auth__WEBPACK_IMPORTED_MODULE_0__.w7)
