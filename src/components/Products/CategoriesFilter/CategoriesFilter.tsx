@@ -40,7 +40,7 @@ const CategoriesFilter = (props: Props) => {
       <div className="categories-filter-content">
         <div className="categories">
           <h3 className="font-medium text-gray-900 mb-2">Категории</h3>
-          <div className="category-grid grid grid-cols-6 gap-5 gap-y-4">
+          <div className="category-grid grid grid-cols-4 gap-5 gap-y-4">
             {categories.map((category, index) => (
                 <div
                   key={category.category_id}

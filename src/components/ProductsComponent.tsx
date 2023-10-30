@@ -57,35 +57,6 @@ const ProductsComponent = (props: Props) => {
         );
     }, [categoriesFilter, sortFilter, priceFilter]);
 
-    // useEffect(() => {
-    //     setLoading(true);
-    //     // router.push("/products?category=test");
-    //     const getProducts = async () => {
-    //         const response = await axios.get("/api/products");
-    //         const products: Product[] = await response.data;
-    //
-    //         dispatch(setProducts(products));
-    //     };
-    //
-    //     const getCategories = async () => {
-    //         const response = await axios.get("/api/categories");
-    //         const categories: Category[] = await response.data;
-    //
-    //         dispatch(setCategories(categories));
-    //     };
-    //
-    //     Promise.all([getProducts(), getCategories()]).finally(() => {
-    //         dispatch(
-    //             filterProducts({
-    //                 categoriesFilter: categoriesFilter,
-    //                 sortFilter: sortFilter,
-    //                 priceFilter: priceFilter,
-    //             }),
-    //         );
-    //         setLoading(false);
-    //     });
-    // }, []);
-
     useEffect(() => {
         console.log("pathname changed");
     }, [pathname]);
@@ -189,12 +160,10 @@ const ProductsComponent = (props: Props) => {
                     className="text-gray-500 transition-colors hover:text-rose-400"
                     role="button"
                     onClick={() => {
-                        // const sort = createQueryString("sort", "1");
-                        // const price = createQueryString("price", "0-10000");
-                        // router.push("/products", {
-                        //   scroll: false,
-                        // });
-                        // router.refresh();
+                        setSortFilter("1");
+                        setCategoriesFilter([]);
+                        setPriceFilter([0, 10000]);
+                        setFilterVisible(false);
                     }}
                 >
             Очистить всё
