@@ -3,12 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
-    product: Product
+    product: Product;
+    onClose: () => void;
 }
 
 const FindProductItem = (props: Props) => {
-    const {product} = props;
-    return <Link className="flex gap-x-4 h-auto w-full py-4 border-b items-center active:bg-gray-200 transition-colors hover:bg-gray-100" href={`/products/${product.product_id}`}>
+    const {product, onClose} = props;
+    return <Link onClick={onClose} className="flex gap-x-4 h-auto w-full py-4 border-b items-center active:bg-gray-200 transition-colors hover:bg-gray-100" href={`/products/${product.product_id}`}>
         <div className="h-20 w-20">
             <Image
                 src={

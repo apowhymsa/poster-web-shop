@@ -69,7 +69,7 @@ const SearchModal = (props: Props) => {
                         <span>Товаров не найдено</span>
                     ) : (
                         filteredProducts.map(findProduct => (
-                            <FindProductItem key={findProduct.product_id} product={findProduct}/>
+                            <FindProductItem key={findProduct.product_id} product={findProduct} onClose={onClose}/>
                         ))
                     )}
                 </div>
