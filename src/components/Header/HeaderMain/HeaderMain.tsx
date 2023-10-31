@@ -98,7 +98,7 @@ const HeaderMain = () => {
                 <div className="relative">
                     <ShoppingCartIcon
                         className={[
-                            "transition-colors cart-icon h-6 w-6 text-gray-400",
+                            "transition-colors cart-icon h-6 w-6 text-gray-400 cursor-pointer hover:text-rose-400",
                             isOpenCart && "text-rose-400",
                         ].join(" ")}
                         onClick={() => setOpenCart((prev) => !prev)}

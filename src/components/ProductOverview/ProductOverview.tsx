@@ -120,7 +120,7 @@ const ProductOverview = (props: Props) => {
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}
                   id="example5"
-                  className="block w-full border-0 focus:border-0 focus:ring-0"
+                  className="block w-full border-0 focus:border-0 focus:ring-0 resize-none"
                   rows={3}
                   placeholder="Ваш комментарий"
                 ></textarea>

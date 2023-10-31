@@ -64,7 +64,7 @@ const SearchModal = (props: Props) => {
             <div>
                 <h2 className="text-lg font-medium leading-10">Результаты
                     поиска {filteredProducts.length > 0 && `(${filteredProducts.length})`}</h2>
-                <div className="flex flex-col max-h-[300px] overflow-y-auto">
+                <div className="grid grid-cols-2 max-h-[300px] overflow-y-auto">
                     {filteredProducts.length === 0 ? (
                         <span>Товаров не найдено</span>
                     ) : (

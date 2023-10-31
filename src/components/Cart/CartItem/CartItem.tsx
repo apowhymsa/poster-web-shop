@@ -88,7 +88,7 @@ dispatch(deleteItem(cartItem));
                   </button>
                   <input
                       value={quantity}
-                      onChange={(event) => setQuantity(Number(event.target.value))}
+                      onChange={(event) => Number(event.target.value) > 100 ? setQuantity(100): Number(event.target.value) < 1 ? setQuantity(1) : setQuantity(Number(event.target.value))}
                       min={1}
                       max={100}
                       type="number"
