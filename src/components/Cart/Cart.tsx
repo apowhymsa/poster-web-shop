@@ -34,9 +34,10 @@ const Cart = (props: Props) => {
     const router = useRouter()
 
     useEffect(() => {
-        const userAuthId = localStorage.getItem("authUserId");
 
         onAuthStateChanged(auth, async (user) => {
+            const userAuthId = localStorage.getItem("authUserId");
+
             if (user) {
                 if (userAuthId) {
                     console.log("auth", userAuthId);

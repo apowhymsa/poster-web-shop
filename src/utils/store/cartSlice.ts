@@ -22,7 +22,6 @@ export const cartSlice = createSlice({
   reducers: {
     setCart: (state, action) => {
       state.cart = action.payload;
-      console.log("payload", action.payload);
     },
     setCartItem: (state, action: PayloadAction<Cart>) => {
       const userId = localStorage.getItem("authUserId");
@@ -38,11 +37,11 @@ export const cartSlice = createSlice({
       }
 
       const setDocPromise = setDoc(
-        doc(db, "users", userId!.toString()),
-        {
-          cart: [...state.cart],
-        },
-        { merge: true },
+          doc(db, "users", userId!.toString()),
+          {
+            cart: [...state.cart],
+          },
+          { merge: true },
       );
     },
     updateQuantity: (state, action: PayloadAction<Cart>) => {
@@ -54,17 +53,21 @@ export const cartSlice = createSlice({
 
       state.cart[productIndex].quantity = action.payload.quantity;
 
-      const setDocPromise = setDoc(
-        doc(db, "users", userId!.toString()),
-        {
-          cart: [...state.cart],
-        },
-        { merge: true },
-      );
+
+      if (userId) {
+        const setDocPromise = setDoc(
+            doc(db, "users", userId!.toString()),
+            {
+              cart: [...state.cart],
+            },
+            { merge: true },
+        );
+      }
     },
     deleteItem: (state, action: PayloadAction<Cart>) => {
       const userId = localStorage.getItem("authUserId");
       state.cart = state.cart.filter(cartItem => cartItem.product.product_id !== action.payload.product.product_id)
+
       const setDocPromise = setDoc(
           doc(db, "users", userId!.toString()),
           {
